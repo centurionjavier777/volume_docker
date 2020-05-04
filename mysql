@@ -1,0 +1,8 @@
+sudo docker volume inspect mysql-data
+docker volume inspect mysql-data
+docker run -p 3307:3306 -v mysql-data:/var/lib/mysql --name mysql -d mysql/mysql-server:latest
+docker ps
+docker logs mysql 2>&1 | grep 'GENERATED'
+docker exec -it mysql bash
+mysql --protocol=tcp  -P3307 -uroot -p********
+
